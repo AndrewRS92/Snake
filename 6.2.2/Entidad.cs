@@ -8,13 +8,13 @@ namespace _6._2._2
 {
     public class Entidad
     {
-        public Entidad(string imagen, int? x = null, int? y = null)
+        public Entidad(string imagen,Laberinto laberinto, int? x = null, int? y = null)
         {
             Random generador = new Random();
 
             if (x == null)
             {
-                X = generador.Next(0, 60);
+                X = generador.Next(0, laberinto.Ancho);
             }
             else
             {
@@ -22,7 +22,7 @@ namespace _6._2._2
             }
             if (y == null)
             {
-                Y = generador.Next(0, 15);
+                Y = generador.Next(0, laberinto.Alto);
 
             }
             else

@@ -10,20 +10,22 @@ namespace _6._2._2
     {
         public void Lanzar()
         {
-            Serpiente jugador = new Serpiente();
+            Laberinto laberinto = new Laberinto(80,50);
+            Serpiente jugador = new Serpiente(laberinto);
             Comida manzana = null;
             while (true)
             {
+                laberinto.Dibujar();
                 jugador.Dibujar();
                 if(manzana == null)
                 {
-                    manzana = new Comida();
+                    manzana = new Comida(laberinto);
                 }
                 else
                 {
                     if(jugador.X==manzana.X && jugador.Y == manzana.Y)
                     {
-                        manzana = new Comida();
+                        manzana = new Comida(laberinto);
                     }
                 } 
                 

@@ -8,7 +8,7 @@ namespace _6._2._2
 {
     public class Serpiente: Entidad
     { 
-        public Serpiente() : base("O")
+        public Serpiente(Laberinto laberinto) : base("O",laberinto)
         {
         }
 
