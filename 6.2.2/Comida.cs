@@ -8,7 +8,7 @@ namespace _6._2._2
 {
     public class Comida:Entidad
     {
-        public Comida() : base("*")
+        public Comida(Laberinto laberinto) : base("*",laberinto)
         {
         }
     }
