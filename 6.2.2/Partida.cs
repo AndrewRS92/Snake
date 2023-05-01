@@ -13,6 +13,8 @@ namespace _6._2._2
             Laberinto laberinto = new Laberinto(80,50);
             Serpiente jugador = new Serpiente(laberinto);
             Comida manzana = null;
+            ConsoleKeyInfo tecla =Console.ReadKey();;
+
             while (true)
             {
                 laberinto.Dibujar();
@@ -25,21 +27,26 @@ namespace _6._2._2
                 {
                     if(jugador.X==manzana.X && jugador.Y == manzana.Y)
                     {
+                    
+                        manzana.Delete(manzana);
                         manzana = new Comida(laberinto);
                     }
                 } 
                 
                 manzana.Dibujar();
-                Mover(jugador);
+                if(Console.KeyAvailable)
+                {
+                    tecla = Console.ReadKey();
+                }
 
-                Console.Clear();
-
+                Mover(jugador, tecla);
+                Thread.Sleep(50);
             }
         }
 
-        private void Mover(Serpiente jugador)
+        private void Mover(Serpiente jugador, ConsoleKeyInfo tecla)
         {
-            ConsoleKeyInfo tecla = Console.ReadKey();
+
             if (tecla.Key == ConsoleKey.UpArrow)
             {
                 jugador.Mover(Direccion.Arriba);
@@ -56,6 +63,8 @@ namespace _6._2._2
             {
                 jugador.Mover(Direccion.Derecha);
             }
+            
+           
         }
     }
 }
